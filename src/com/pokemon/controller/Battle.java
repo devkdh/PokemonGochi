@@ -4,99 +4,150 @@ import java.util.Scanner;
 
 import com.pokemon.model.vo.Charac;
 
-public class Battle {
+public class Battle extends Charac{
 	
 	Charac c = new Charac();
-
-	int Enemyhp = (int)(Math.random()*45+30); //Àû Ã¼·Â
-	int EnemyAttack =(int)(Math.random()*10+15);//Àû °ø°Ý·Â
-	int playerDamage = c.getLevel()*19;//·¹º§¸¶´Ù °ø°Ý·Â 19¾¿ Áõ°¡
+	
+	int Enemyhp = (int)(Math.random()*45+30); //ì  ì²´ë ¥
+	int EnemyAttack =(int)(Math.random()*10+15);//ì  ê³µê²©ë ¥
+	int playerDamage = c.getLevel()*19;//ë ˆë²¨ë§ˆë‹¤ ê³µê²©ë ¥ 19ì”© ì¦ê°€
 	int playerHp = 100;
 	int playerExp = c.getExp();
 	int penalty = c.getHp()-10;
-
-	public void playersetAttack()  //ÇÃ·¹ÀÌ¾î °ø°Ý-ÀûÃ¼·Â °¨¼Ò
-	{Enemyhp -=playerDamage;}
-	public void enemysetDefense() //Àû ¹æ¾î- Àû Ã¼·Â 0 °¨¼Ò
-	{Enemyhp -= 0;}
-	public void playersetDefense() // ÇÃ·¹ÀÌ¾î ¹æ¾î - ÇÃ·¹ÀÌ¾î Ã¼·Â 0 °¨¼Ò
-	{playerHp -= 0 ;}
-	public void enemysetAttack() // Àû °ø°Ý (int)(Math.random()*10+10) ÀÇ µ¥¹ÌÁö
-	{playerHp-=EnemyAttack;}
-
-	public int enemygetAttack() //ÇÃ·¹ÀÌ¾î °ø°Ý¹ÞÀ»½Ã ÇÃ·¹ÀÌ¾î Ã¼·Â
-	{   
-	   System.out.println("ÇÃ·¹ÀÌ¾îÀÇ ÀüÅõ·Â:"+playerHp);
-	   return playerHp;}
-
-	public int enemygetDefense() //Àû ¹æ¾î½Ã Àû Ã¼·Â
-	{System.out.println("ÀûÀüÅõ·Â:"+Enemyhp);
-	   return Enemyhp;}
-
-	public int playergetAttack() //ÇÃ·¹ÀÌ¾î °ø°Ý½Ã Àû Ã¼·Â
-	{System.out.println("ÀûÀüÅõ·Â:"+Enemyhp);
-	   return Enemyhp;}
-
-	public int playergetDefense() //ÇÃ·¹ÀÌ¾î ¹æ¾î½Ã ÇÃ·¹ÀÌ¾î Ã¼·Â
-	{System.out.println("ÇÃ·¹ÀÌ¾îÀÇ ÀüÅõ·Â:"+playerHp);
-	   return playerHp;
+	
+//	public Battle() {}
+//	
+//	public Battle(int kp,String name, int Hp, int clean, int exp, int level) {
+//		
+//		super(kp, name, Hp, clean, exp, level);
+//		
+//	}
+	
+	
+	public void playersetAttack(){   //í”Œë ˆì´ì–´ ê³µê²©-ì ì²´ë ¥ ê°ì†Œ
+		
+		Enemyhp -= playerDamage;
+		
 	}
-	public int play() {
-	   do {
-	   
-	   Scanner sc = new Scanner(System.in);
-	   System.out.println("ÀûÀÇ ÀüÅõ·Â"+Enemyhp);
-	   System.out.println("ÇÃ·¹ÀÌ¾îÀÇ ÀüÅõ·Â"+ playerHp);
-	   System.out.println("\n¹öÆ°À» ÀÔ·Â");
-	   int i= sc.nextInt();
-	   int ran = (int)(Math.random()*3+1);
-	   switch(i) {
-	   case 1: 
-	   if(ran==1||ran==3) {
-	      System.out.println("ÇÃ·¹ÀÌ¾î °ø°Ý");
-	      System.out.println(playerDamage+"ÀÇ ÇÇÇØ¸¦ ÀÔÇû´Ù.");
-	      playersetAttack();
-	      playergetAttack();
-	      System.out.println("Àû °ø°Ý");
-	      System.out.println(EnemyAttack+"ÀÇ ÇÇÇØ¸¦ ¹Þ¾Ò´Ù.");
-	      enemysetAttack();
-	      enemygetAttack();
-	   }else {
-	      enemysetDefense();
-	      enemygetDefense();
-	      System.out.println("ÀûÀÌ ¹æ¾î¼º°ø");
-	      System.out.println("ÀûÀÌ ÀÔÀº ÇÇÇØ 0");
-	   }
-	   break;
-	   case 2:
-	      if(ran==1||ran==3) {
-	         playersetDefense();
-	         playergetDefense();
-	         System.out.println("ÇÃ·¹ÀÌ¾î°¡ ¹æ¾î¼º°ø");
-	      }else {
-	         System.out.println("¼­·Î °ø°ÝÇÏÁö ¾ÊÀ½");   
-	      }
-	      break;
-	   case 3:
-	      System.out.println("ÀüÅõ¿¡¼­ µµ¸Á, µµ¸Á Æä³ÎÆ¼ Ã¼·Â 10 °¨¼Ò");
-	      System.out.println("ÇÃ·¹ÀÌ¾î Ã¼·Â"+penalty);
-	      playerHp = 100;
-	      Enemyhp = (int)(Math.random()*45+30);
-	      return penalty=c.getHp();
-	   default:
-	   }
-	   }
-	   while(Enemyhp>=1);
-	   if(Enemyhp<1) {
-	   System.out.println("ÀüÅõ¿¡¼­ ½Â¸®");
-	   c.setExp(c.getExp()+50);
-	   System.out.println("ÀüÅõ½Â¸® °æÇèÄ¡ 50 È¹µæ");
-	   System.out.println("ÇöÀç°æÇèÄ¡"+c.getExp());
-	   playerHp = 100;
-	   Enemyhp = (int)(Math.random()*45+30);
-	   }
-	   return playerExp=c.getExp();
+	
+	public void enemysetDefense(){ //ì  ë°©ì–´- ì  ì²´ë ¥ 0 ê°ì†Œ
+		
+		Enemyhp -= 0;
+		
 	}
+	
+	public void playersetDefense(){ // í”Œë ˆì´ì–´ ë°©ì–´ - í”Œë ˆì´ì–´ ì²´ë ¥ 0 ê°ì†Œ
+		
+		playerHp -= 0;
+		
+	}
+	
+	
+	public void enemysetAttack(){  // ì  ê³µê²© (int)(Math.random()*10+10) ì˜ ë°ë¯¸ì§€
+		
+		playerHp -= EnemyAttack;
+		
+	}
+	
 
 
-}
+	public int enemygetAttack(){ //í”Œë ˆì´ì–´ ê³µê²©ë°›ì„ì‹œ í”Œë ˆì´ì–´ ì²´ë ¥
+		
+		System.out.println("í”Œë ˆì´ì–´ì²´ë ¥:"+playerHp);
+		return playerHp;
+		
+	}
+	
+	
+	public int enemygetDefense(){ //ì  ë°©ì–´ì‹œ ì  ì²´ë ¥
+		
+		System.out.println("ì ì²´ë ¥:"+Enemyhp);
+		return Enemyhp;
+		
+	}
+	
+	
+	public int playergetAttack(){ //í”Œë ˆì´ì–´ ê³µê²©ì‹œ ì  ì²´ë ¥
+		
+		System.out.println("ì ì²´ë ¥:"+Enemyhp);
+		return Enemyhp;
+		
+	}
+	
+	
+	public int playergetDefense(){ //í”Œë ˆì´ì–´ ë°©ì–´ì‹œ í”Œë ˆì´ì–´ ì²´ë ¥
+		
+		System.out.println("í”Œë ˆì´ì–´ì²´ë ¥:"+playerHp);
+		return playerHp;
+		
+	}
+	
+	public void play() {
+		
+		do {
+			
+			Scanner sc = new Scanner(System.in);
+			System.out.println("ë²„íŠ¼ì„ ìž…ë ¥");
+			
+			int i= sc.nextInt();
+			int ran = (int)(Math.random()*3+1);
+			
+			switch(i) {
+			
+				case 1: 
+					if(ran==1||ran==3) { //ìƒëŒ€ê°€ ê³µê²©í•˜ëŠ” ë‚œìˆ˜
+						System.out.println("í”Œë ˆì´ì–´ ê³µê²©");
+						System.out.println(playerDamage+"ì˜ í”¼í•´ë¥¼ ìž…í˜”ë‹¤.");
+						playersetAttack();
+						playergetAttack();
+						System.out.println("ì  ê³µê²©");
+						System.out.println(EnemyAttack+"ì˜ í”¼í•´ë¥¼ ë°›ì•˜ë‹¤.");
+						enemysetAttack();
+						enemygetAttack();
+						
+					}else {
+						enemysetDefense();
+						enemygetDefense();
+						System.out.println("ì ì´ ë°©ì–´ì„±ê³µ");
+						System.out.println("ì ì´ ìž…ì€ í”¼í•´ 0");
+					}
+					break;
+					
+				case 2:
+					if(ran==1||ran==3) {
+						playersetDefense();
+						playergetDefense();
+						System.out.println("í”Œë ˆì´ì–´ê°€ ë°©ì–´ì„±ê³µ");
+						
+					}else {
+						System.out.println("ì„œë¡œ ê³µê²©í•˜ì§€ ì•ŠìŒ");	
+						
+					}
+					break;
+					
+				case 3:
+					System.out.println("ì „íˆ¬ì—ì„œ ë„ë§, ë„ë§ íŽ˜ë„í‹° ì²´ë ¥ 10 ê°ì†Œ");
+				    System.out.println("í”Œë ˆì´ì–´ ì²´ë ¥"+penalty);
+				    playerHp = 100;
+				    Enemyhp = (int)(Math.random()*45+30);
+				    c.setHp(penalty);
+				    return;
+		
+				}
+			
+		}while(Enemyhp>=1);
+	
+		if(Enemyhp<1) {
+			c.setExp(c.getExp()+50);
+			
+			System.out.println("ì „íˆ¬ì—ì„œ ìŠ¹ë¦¬");
+			System.out.println("ì „íˆ¬ìŠ¹ë¦¬ ê²½í—˜ì¹˜ 50 íšë“");
+			System.out.println("í˜„ìž¬ê²½í—˜ì¹˜"+c.getExp());
+			playerHp = 100;
+			Enemyhp = (int)(Math.random()*45+30);
+			
+			
+		}
+			
+	}
+	
