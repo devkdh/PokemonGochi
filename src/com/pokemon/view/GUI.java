@@ -37,12 +37,10 @@ public class GUI extends JFrame{
    JPanel Hatchfire = new Hatchfire();
    JPanel pikachu = new pikachu();
    JPanel eggbreak = new eggbreak();
-   JPanel PikaEat = new PikaEat();
    
    public static void main(String[] args) {
       new GUI();
       System.out.println(k);
-      
    }
    
 
@@ -51,9 +49,7 @@ public class GUI extends JFrame{
       super("포켓몬GO치");
       
       this.setLayout(new BorderLayout());
-      
-      
-      
+         
       /* TITLE */
       title.setPreferredSize(new Dimension(0, 50));
       /* CHAT */
@@ -88,7 +84,6 @@ public class GUI extends JFrame{
       btn.add(red);
       btn.add(yellow);
       btn.add(green);
-
       
       ActionClass actionEvent = new ActionClass();
        red.addActionListener(actionEvent);    //빨간버튼 Actionevent
@@ -98,9 +93,8 @@ public class GUI extends JFrame{
         yellow.setActionCommand("2");// 액션커맨드-노랑버튼의 숫자값을 정해줌
         green.setActionCommand("3");// 액션커맨드-초록버튼의 숫자값을 정해줌
 
-
+      
       // btn panel add
-//      btn.setBackground(Color.blue);
       btn.setPreferredSize(new Dimension(0, 130));
       /* 여기까지 버튼 */
       
@@ -172,14 +166,6 @@ public void Hatchfire() {   //파이리 부화화면 표시
    screen.add(Hatchfire);      //파이리 부화화면 표시 
 }
 
-public void PikaEat() {
-   System.out.println(pokemon.getName()+"의 체력이 10 증가하였습니다.");
-   System.out.println(pokemon.getName()+"의 청결도가 10 하락하였습니다.");
-   pokemon.setHp(pokemon.getHp()+10);
-   pokemon.setClean(pokemon.getClean()-10);
-   pikachu.setVisible(false);
-   screen.add(PikaEat);      //피카츄 밥먹는 gif
-}
 
 public void pikachu() {   //피카츄 플레이화면 표시
    Hatchpika.setVisible(false); //피카츄부화화면 삭제
@@ -205,8 +191,6 @@ public void pikachu() {   //피카츄 플레이화면 표시
                     Hatchfire();
                  }else if (i==4 && k==0 ) {
                     pikachu();   
-                 }else if (i==5 && k==0) {
-                    PikaEat();
                  }
                  i++;
                   break;
@@ -250,9 +234,3 @@ public void pikachu() {   //피카츄 플레이화면 표시
           }
       }
 }
-
-
-
-	
-
-
