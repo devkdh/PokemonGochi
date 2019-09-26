@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -21,266 +22,237 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 public class GUI extends JFrame{
-	private static int k= (int)(Math.random()*3); //Æ÷ÄÏ¸óÁ¾·ù°¡ ¾ÈºÒ·¯¿ÍÁö´Â °ü°è·Î ÀÓ½Ã·Î ³­¼ö ÁöÁ¤
-	
-	Charac pokemon = new Charac(); 
-	JPanel title = new JPanel();
-	JPanel screen = new JPanel();
-	JPanel chat = new JPanel();
-	JPanel stat = new JPanel();
-	JPanel btn= new JPanel();
-	JPanel start = new Start();
-	JPanel egg = new Egg();
-	JPanel Hatchpika = new Hatchpika();
-	JPanel Hatchturtle = new Hatchturtle();
-	JPanel Hatchfire = new Hatchfire();
-	JPanel pikachu = new pikachu();
-	JPanel eggbreak = new eggbreak();
-	
-	public static void main(String[] args) {
-		new GUI();
-		System.out.println(k);
-		
-//		Charac c = new Charac();
-//		Game g = new Game();
-//		System.out.println(c.getPk());
-//		System.out.println(g.getKind());
-	}
-	
+   private static int k= (int)(Math.random()*3); //í¬ì¼“ëª¬ì¢…ë¥˜ê°€ ì•ˆë¶ˆëŸ¬ì™€ì§€ëŠ” ê´€ê³„ë¡œ ì„ì‹œë¡œ ë‚œìˆ˜ ì§€ì •
+   
+   Charac pokemon = new Charac(); 
+   JPanel title = new JPanel();
+   JPanel screen = new JPanel();
+   JPanel chat = new JPanel();
+   JPanel stat = new JPanel();
+   JPanel btn= new JPanel();
+   JPanel start = new Start();
+   JPanel egg = new Egg();
+   JPanel Hatchpika = new Hatchpika();
+   JPanel Hatchturtle = new Hatchturtle();
+   JPanel Hatchfire = new Hatchfire();
+   JPanel pikachu = new pikachu();
+   JPanel eggbreak = new eggbreak();
+   JPanel PikaEat = new PikaEat();
+   
+   public static void main(String[] args) {
+      new GUI();
+      System.out.println(k);
+      
+   }
+   
 
-	public GUI() {
-		
-		super("Æ÷ÄÏ¸óGOÄ¡");
-		
-		this.setLayout(new BorderLayout());
-		
-		
-		
-		/* TITLE */
-		title.setPreferredSize(new Dimension(0, 50));
-		/* CHAT */
-		chat.setPreferredSize(new Dimension(50, 0));
-		/* STAT */
-		stat.setPreferredSize(new Dimension(50, 0));
-		
-		/* BUTTONS */
-		/* ¿©±â¼­ºÎÅÍ */
-		JButton red = new JButton("   ");
-		JButton yellow = new JButton();
-		JButton green = new JButton();		
-		btn.setLayout(new GridLayout(1,3));
-		JPanel a = new JPanel();
-		JPanel b = new JPanel();
-		JPanel c = new JPanel();
-		
-		a.setLayout(new BorderLayout());
-		b.setLayout(new BorderLayout());
-		c.setLayout(new BorderLayout());
-		/* Àá±ñ */
-		JLabel q1 = new JLabel(" ");
-		JLabel q2 = new JLabel(" ");
-		JLabel q3 = new JLabel("                ");
-		JLabel q4 = new JLabel("                ");
-		
-		JLabel q5 = new JLabel(" ");
-		JLabel q6 = new JLabel(" ");
-		JLabel q7 = new JLabel("                ");
-		JLabel q8 = new JLabel("                ");
-		
-		JLabel q9 = new JLabel(" ");
-		JLabel q10 = new JLabel(" ");
-		JLabel q11 = new JLabel("                ");
-		JLabel q12 = new JLabel("                ");
-		
-		btn.add(a);
-		btn.add(b);
-		btn.add(c);
-		
-		a.add(q1, "South");
-		a.add(q2, "North");
-		a.add(q3, "East");
-		a.add(q4, "West");
-		
-		b.add(q5, "South");
-		b.add(q6, "North");
-		b.add(q7, "East");
-		b.add(q8, "West");
-		
-		c.add(q9, "South");
-		c.add(q10, "North");
-		c.add(q11, "East");
-		c.add(q12, "West");
-		
-		a.add(red,"Center");
-		b.add(yellow,"Center");
-		c.add(green, "Center");
-		
-		ActionClass actionEvent = new ActionClass();
-	    red.addActionListener(actionEvent);    //»¡°£¹öÆ° Actionevent
-        yellow.addActionListener(actionEvent); //³ë¶û¹öÆ° Actionevent
-        green.addActionListener(actionEvent); //ÃÊ·Ï¹öÆ° Actionevent
-        red.setActionCommand("1"); // ¾×¼ÇÄ¿¸Çµå-»¡°­¹öÆ°ÀÇ ¼ıÀÚ°ªÀ» Á¤ÇØÁÜ
-        yellow.setActionCommand("2");// ¾×¼ÇÄ¿¸Çµå-³ë¶û¹öÆ°ÀÇ ¼ıÀÚ°ªÀ» Á¤ÇØÁÜ
-        green.setActionCommand("3");// ¾×¼ÇÄ¿¸Çµå-ÃÊ·Ï¹öÆ°ÀÇ ¼ıÀÚ°ªÀ» Á¤ÇØÁÜ
+   public GUI() {
+      
+      super("í¬ì¼“ëª¬GOì¹˜");
+      
+      this.setLayout(new BorderLayout());
+      
+      
+      
+      /* TITLE */
+      title.setPreferredSize(new Dimension(0, 50));
+      /* CHAT */
+      chat.setPreferredSize(new Dimension(50, 0));
+      /* STAT */
+      stat.setPreferredSize(new Dimension(50, 0));
+      
+      /* BUTTONS */
+      /* ì—¬ê¸°ì„œë¶€í„° */
+      //RED Button ì´ë¯¸ì§€ ì”Œìš°ê¸°
+      Image redBtn = new ImageIcon("images/red.png").getImage();
+      Image redBtn2 = redBtn.getScaledInstance(80, 80, 0);
+      JButton red = new JButton(new ImageIcon(redBtn2));
+      red.setBorderPainted(false);      //í…Œë‘ë¦¬ì—†ì• ê¸°
+      red.setContentAreaFilled(false);   //ë²„íŠ¼ ë°°ê²½ì—†ì• ê¸°
+      
+      //YELLOW Button
+      Image yBtn = new ImageIcon("images/yellow.png").getImage();
+      Image yBtn2 = yBtn.getScaledInstance(80, 80, 0);
+      JButton yellow = new JButton(new ImageIcon(yBtn2));
+      yellow.setBorderPainted(false);
+      yellow.setContentAreaFilled(false);
+      
+      //GREEN Button
+      Image gBtn = new ImageIcon("images/green.png").getImage();
+      Image gBtn2 = gBtn.getScaledInstance(80, 80, 0);
+      JButton green = new JButton(new ImageIcon(gBtn2));   
+      green.setBorderPainted(false);
+      green.setContentAreaFilled(false);
+      
+      btn.setLayout(new FlowLayout(FlowLayout.CENTER,50,30));   //ë²„íŠ¼ íŒ¨ë„ ìœ„ì¹˜ ë° ê°„ê²© ì„¤ì •
+      btn.add(red);
+      btn.add(yellow);
+      btn.add(green);
 
-		
-        red.setBackground(Color.RED);
-	     yellow.setBackground(Color.YELLOW);
-	     green.setBackground(Color.GREEN);
-		
-		// btn panel add
-		btn.setBackground(Color.blue);
-		btn.setPreferredSize(new Dimension(0, 130));
-		/* ¿©±â±îÁö ¹öÆ° */
-		
-		/* ¿©±â¼­ºÎÅÍ */
-		screen.setLayout(new BorderLayout());
-		
-		/* screen Å×µÎ¸® ÁöÁ¤ */
-		Border as = BorderFactory.createLineBorder(Color.black);
-		screen.setBorder(as);
-		screen.add(start);
-		start.setVisible(true);
+      
+      ActionClass actionEvent = new ActionClass();
+       red.addActionListener(actionEvent);    //ë¹¨ê°„ë²„íŠ¼ Actionevent
+        yellow.addActionListener(actionEvent); //ë…¸ë‘ë²„íŠ¼ Actionevent
+        green.addActionListener(actionEvent); //ì´ˆë¡ë²„íŠ¼ Actionevent
+        red.setActionCommand("1"); // ì•¡ì…˜ì»¤ë§¨ë“œ-ë¹¨ê°•ë²„íŠ¼ì˜ ìˆ«ìê°’ì„ ì •í•´ì¤Œ
+        yellow.setActionCommand("2");// ì•¡ì…˜ì»¤ë§¨ë“œ-ë…¸ë‘ë²„íŠ¼ì˜ ìˆ«ìê°’ì„ ì •í•´ì¤Œ
+        green.setActionCommand("3");// ì•¡ì…˜ì»¤ë§¨ë“œ-ì´ˆë¡ë²„íŠ¼ì˜ ìˆ«ìê°’ì„ ì •í•´ì¤Œ
 
-		/* ¿©±â¼­±îÁö ½ºÅ©¸° */
-		
-		// JFrame add
-		this.add(title);
-		this.add(screen);
-		this.add(chat);
-		this.add(stat);
-		this.add(btn);
-		
-		this.add(btn, "South");
-		this.add(title, "North");
-		this.add(stat, "East");
-		this.add(chat, "West");
-		this.add(screen, "Center");
-		
 
-		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setBounds(300, 200, 900, 600);
-	}
+      // btn panel add
+//      btn.setBackground(Color.blue);
+      btn.setPreferredSize(new Dimension(0, 130));
+      /* ì—¬ê¸°ê¹Œì§€ ë²„íŠ¼ */
+      
+      /* ì—¬ê¸°ì„œë¶€í„° */
+      screen.setLayout(new BorderLayout());
+      
+      /* screen í…Œë‘ë¦¬ ì§€ì • */
+      Border as = BorderFactory.createLineBorder(Color.black);
+      screen.setBorder(as);
+      screen.add(start);
+      start.setVisible(true);
 
-public void Eggs() {       //¾Ë È­¸é Ç¥½Ã
-	start.setVisible(false); //½ÃÀÛÈ­¸é »èÁ¦
-	screen.add(egg);   //¾Ë È­¸é Ç¥½Ã
+      /* ì—¬ê¸°ì„œê¹Œì§€ ìŠ¤í¬ë¦° */
+      
+      // JFrame add
+      this.add(title);
+      this.add(screen);
+      this.add(chat);
+      this.add(stat);
+      this.add(btn);
+      
+      this.add(btn, "South");
+      this.add(title, "North");
+      this.add(stat, "East");
+      this.add(chat, "West");
+      this.add(screen, "Center");
+      
+
+      this.setVisible(true);
+      this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      this.setBounds(300, 200, 900, 600);
+   }
+
+public void Eggs() {       //ì•Œ í™”ë©´ í‘œì‹œ
+   start.setVisible(false); //ì‹œì‘í™”ë©´ ì‚­ì œ
+   screen.add(egg);   //ì•Œ í™”ë©´ í‘œì‹œ
 }
-public void eggbreak() {   //¾Ë ºÎÈ­È­¸é Ç¥½Ã
-	Timer timer = new Timer();
+public void eggbreak() {   //ì•Œ ë¶€í™”í™”ë©´ í‘œì‹œ
+   Timer timer = new Timer();
     TimerTask tTask = new TimerTask() {
-   	
+      
        @Override
        public void run() {
-				egg.setVisible(false); //¾Ë È­¸é »èÁ¦
-				screen.add(eggbreak);	//¾Ë ºÎÈ­È­¸é Ç¥½Ã			
+            egg.setVisible(false); //ì•Œ í™”ë©´ ì‚­ì œ
+            screen.add(eggbreak);   //ì•Œ ë¶€í™”í™”ë©´ í‘œì‹œ         
        }
     };      
     timer.schedule(tTask, 3000);
 }
-public void Hatchpika() {   //ÇÇÄ«ÃòºÎÈ­È­¸é Ç¥½Ã
+public void Hatchpika() {   //í”¼ì¹´ì¸„ë¶€í™”í™”ë©´ í‘œì‹œ
  
-	System.out.println(pokemon.toString());
-	System.out.println(pokemon.getName()+"°¡ ÅÂ¾î³µ½À´Ï´Ù!");
-	eggbreak.setVisible(false); //¾ËºÎÈ­È­¸é »èÁ¦
-	screen.add(Hatchpika);		//ÇÇÄ«ÃòºÎÈ­È­¸é Ç¥½Ã
+   System.out.println(pokemon.toString());
+   System.out.println(pokemon.getName()+"ê°€ íƒœì–´ë‚¬ìŠµë‹ˆë‹¤!");
+   eggbreak.setVisible(false); //ì•Œë¶€í™”í™”ë©´ ì‚­ì œ
+   screen.add(Hatchpika);      //í”¼ì¹´ì¸„ë¶€í™”í™”ë©´ í‘œì‹œ
 }
-public void Hatchturtle() {   //²¿ºÎ±â ºÎÈ­È­¸é Ç¥½Ã
+public void Hatchturtle() {   //ê¼¬ë¶€ê¸° ë¶€í™”í™”ë©´ í‘œì‹œ
 
-	System.out.println(pokemon.toString());
-	System.out.println(pokemon.getName()+"°¡ ÅÂ¾î³µ½À´Ï´Ù!");
-	eggbreak.setVisible(false); //¾ËºÎÈ­È­¸é »èÁ¦
-	screen.add(Hatchturtle);	 //²¿ºÎ±â ºÎÈ­È­¸é Ç¥½Ã	
+   System.out.println(pokemon.toString());
+   System.out.println(pokemon.getName()+"ê°€ íƒœì–´ë‚¬ìŠµë‹ˆë‹¤!");
+   eggbreak.setVisible(false); //ì•Œë¶€í™”í™”ë©´ ì‚­ì œ
+   screen.add(Hatchturtle);    //ê¼¬ë¶€ê¸° ë¶€í™”í™”ë©´ í‘œì‹œ   
 }
-public void Hatchfire() {   //ÆÄÀÌ¸® ºÎÈ­È­¸é Ç¥½Ã
-	
-	System.out.println(pokemon.toString());
-	System.out.println(pokemon.getName()+"°¡ ÅÂ¾î³µ½À´Ï´Ù!");
-	eggbreak.setVisible(false); //¾ËºÎÈ­È­¸é »èÁ¦
-	screen.add(Hatchfire);		//ÆÄÀÌ¸® ºÎÈ­È­¸é Ç¥½Ã 
+public void Hatchfire() {   //íŒŒì´ë¦¬ ë¶€í™”í™”ë©´ í‘œì‹œ
+   
+   System.out.println(pokemon.toString());
+   System.out.println(pokemon.getName()+"ê°€ íƒœì–´ë‚¬ìŠµë‹ˆë‹¤!");
+   eggbreak.setVisible(false); //ì•Œë¶€í™”í™”ë©´ ì‚­ì œ
+   screen.add(Hatchfire);      //íŒŒì´ë¦¬ ë¶€í™”í™”ë©´ í‘œì‹œ 
 }
 
-public void pikachu() {   //ÇÇÄ«Ãò ÇÃ·¹ÀÌÈ­¸é Ç¥½Ã
-	Hatchpika.setVisible(false); //ÇÇÄ«ÃòºÎÈ­È­¸é »èÁ¦
-	screen.add(pikachu);		
+public void PikaEat() {
+   System.out.println(pokemon.getName()+"ì˜ ì²´ë ¥ì´ 10 ì¦ê°€í•˜ì˜€ìŠµë‹ˆë‹¤.");
+   System.out.println(pokemon.getName()+"ì˜ ì²­ê²°ë„ê°€ 10 í•˜ë½í•˜ì˜€ìŠµë‹ˆë‹¤.");
+   pokemon.setHp(pokemon.getHp()+10);
+   pokemon.setClean(pokemon.getClean()-10);
+   pikachu.setVisible(false);
+   screen.add(PikaEat);      //í”¼ì¹´ì¸„ ë°¥ë¨¹ëŠ” gif
 }
-		class ActionClass implements ActionListener {
-			int i=1;  //¸Å ¹öÆ° Å¬¸¯½Ã¸¶´Ù 1¾¿ Áõ°¡
-			
-		    @Override
-		    public void actionPerformed(ActionEvent e) {
-		        int action = Integer.parseInt(e.getActionCommand());
-		        switch (action) { 
-		        case 1:	   //»¡°£¹öÆ°    	
-		        	if(i==1) {
-		        		Eggs();
-		        	}else if(i==2) {
-		        		eggbreak();
-		        	}else if (i==3&& k==0) { 
-		        		Hatchpika();		        	
-		        	}else if (i==3 && k==1) {
-		        		Hatchturtle();
-		        	}
-		        	else if (i==3 && k==2) {
-		        		Hatchfire();
-		        	}else if (i==4 && k==0 ) {
-		        		pikachu();	
-		        	}
-		        	i++;
-		            break;
-		        case 2:		//³ë¶û¹öÆ°
-		        	if(i==1) {
-		        		Eggs();
-		        	}else if(i==2) {
-		        		eggbreak();
-		        	}else if (i==3&& k==0) { 
-		        		Hatchpika();		        	
-		        	}else if (i==3 && k==1) {
-		        		Hatchturtle();
-		        	}
-		        	else if (i==3 && k==2) {
-		        		Hatchfire();
-		        	}else if (i==4 && k==0 ) {
-		        		pikachu();	
-		        	}
-		        	i++;
-		            break;
-		        case 3:		//ÃÊ·Ï¹öÆ°
-		        	if(i==1) {
-		        		Eggs();
-		        	}else if(i==2) {
-		        		eggbreak();
-		        	}else if (i==3&& k==0) { 
-		        		Hatchpika();		        	
-		        	}else if (i==3 && k==1) {
-		        		Hatchturtle();
-		        	}
-		        	else if (i==3 && k==2) {
-		        		Hatchfire();
-		        	}else if (i==4 && k==0 ) {
-		        		pikachu();	
-		        	}
-		        	i++;
-		            break;
-		        default:
-		            break;
-		        }
-		    }
-		}
+
+public void pikachu() {   //í”¼ì¹´ì¸„ í”Œë ˆì´í™”ë©´ í‘œì‹œ
+   Hatchpika.setVisible(false); //í”¼ì¹´ì¸„ë¶€í™”í™”ë©´ ì‚­ì œ
+   screen.add(pikachu);      
 }
-//JButton red, green;
-//
-//public void actionPerformed(ActionEvent e) {
-//  Object src = e.getSource();
-//
-//  if (src == leftButton) {
-//
-//  }
-//  else if (src == rightButton) {
-//
-//  }
-//}
+      class ActionClass implements ActionListener {
+         int i=1;  //ë§¤ ë²„íŠ¼ í´ë¦­ì‹œë§ˆë‹¤ 1ì”© ì¦ê°€
+         
+          @Override
+          public void actionPerformed(ActionEvent e) {
+              int action = Integer.parseInt(e.getActionCommand());
+              switch (action) { 
+              case 1:      //ë¹¨ê°„ë²„íŠ¼       
+                 if(i==1) {
+                    Eggs();
+                 }else if(i==2) {
+                    eggbreak();
+                 }else if (i==3&& k==0) { 
+                    Hatchpika();                 
+                 }else if (i==3 && k==1) {
+                    Hatchturtle();
+                 }else if (i==3 && k==2) {
+                    Hatchfire();
+                 }else if (i==4 && k==0 ) {
+                    pikachu();   
+                 }else if (i==5 && k==0) {
+                    PikaEat();
+                 }
+                 i++;
+                  break;
+              case 2:      //ë…¸ë‘ë²„íŠ¼
+                 if(i==1) {
+                    Eggs();
+                 }else if(i==2) {
+                    eggbreak();
+                 }else if (i==3&& k==0) { 
+                    Hatchpika();                 
+                 }else if (i==3 && k==1) {
+                    Hatchturtle();
+                 }
+                 else if (i==3 && k==2) {
+                    Hatchfire();
+                 }else if (i==4 && k==0 ) {
+                    pikachu();   
+                 }
+                 i++;
+                  break;
+              case 3:      //ì´ˆë¡ë²„íŠ¼
+                 if(i==1) {
+                    Eggs();
+                 }else if(i==2) {
+                    eggbreak();
+                 }else if (i==3&& k==0) { 
+                    Hatchpika();                 
+                 }else if (i==3 && k==1) {
+                    Hatchturtle();
+                 }
+                 else if (i==3 && k==2) {
+                    Hatchfire();
+                 }else if (i==4 && k==0 ) {
+                    pikachu();   
+                 }
+                 i++;
+                  break;
+              default:
+                  break;
+              }
+          }
+      }
+}
+
+
+
 	
 
 
